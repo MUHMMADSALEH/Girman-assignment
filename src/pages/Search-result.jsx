@@ -66,18 +66,18 @@ const SearchResultPage = () => {
   return (
     <>
       <NavbarWithSearch  filteredUser={filteredUser} setFilteredUser={setFilteredUser}/>
-      <main className='flex justify-center items-center h-screen relative bg-[#B1CBFF]/30'>
+      <main className='flex justify-center items-center min-h-screen bg-[#B1CBFF]/30  '>
        {
-        !(filteredUser.length===0)?( <div className='w-[1074px] absolute top-8 mx-auto bg-transparent z-10 h-screen'>
+        !(filteredUser.length===0)?( <div className='w-[1074px]  mt-10 mx-auto bg-transparent z-10 min-h-screen '>
           <div className='grid grid-cols-3 gap-4'>
-            {filteredUser && filteredUser.length > 0 && filteredUser.map((user, index) => (
+            {filteredUser && filteredUser.length > 0 && [...filteredUser,...filteredUser,...filteredUser,...filteredUser,...filteredUser,...filteredUser].map((user, index) => (
               <Card
                 key={index}
                 firstName={user.first_name}
                 lastName={user.last_name}
                 city={user.city}
                 contactNumber={user.contact_number}
-                avatar={user.avatar}
+               
                 onFetchDetails={() => handleFetchDetails(user)}
               />
             ))}
